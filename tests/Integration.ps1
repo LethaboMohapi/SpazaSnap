@@ -1,5 +1,7 @@
 param([string]$BaseUrl='http://localhost:5038')
 $ErrorActionPreference='Stop'
+# Fresh CI shells have not loaded the web cmdlets or their session type yet.
+Import-Module Microsoft.PowerShell.Utility -ErrorAction Stop
 $script:Session=[Microsoft.PowerShell.Commands.WebRequestSession]::new()
 $script:Headers=@{'X-SpazaSnap'='1'}
 function Check($ok,[string]$name) { if(-not $ok){throw "FAILED: $name"}; Write-Output "PASS: $name" }
