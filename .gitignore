@@ -1,0 +1,10 @@
+bin/
+obj/
+.vs/
+.env
+App_Data/
+*.user
+TestResults/
+publish/
+*.log
+app.pid

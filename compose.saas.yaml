@@ -1,0 +1,70 @@
+# HTTPS deployment for a single application node. Set DOMAIN and passwords in .env.
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: spazasnap
+      MYSQL_USER: spazasnap
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD}
+    volumes:
+      - saas-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks: [saas]
+    restart: unless-stopped
+  initialize:
+    build: .
+    command: ["--init-db"]
+    environment:
+      ConnectionStrings__MySql: Server=db;Database=spazasnap;User ID=spazasnap;Password=${MYSQL_PASSWORD};Connection Timeout=10
+    volumes:
+      - saas-files:/app/App_Data
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [saas]
+    restart: 'no'
+  app:
+    build: .
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__MySql: Server=db;Database=spazasnap;User ID=spazasnap;Password=${MYSQL_PASSWORD};Connection Timeout=10
+      AllowedHosts: ${DOMAIN:?Set DOMAIN to your real domain}
+      Deployment__TrustedProxy: 172.30.50.2
+    volumes:
+      - saas-files:/app/App_Data
+    depends_on:
+      initialize:
+        condition: service_completed_successfully
+    networks: [saas]
+    restart: unless-stopped
+  edge:
+    image: caddy:2
+    environment:
+      DOMAIN: ${DOMAIN:?Set DOMAIN to your real domain}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on: [app]
+    networks:
+      saas:
+        ipv4_address: 172.30.50.2
+    restart: unless-stopped
+networks:
+  saas:
+    ipam:
+      config:
+        - subnet: 172.30.50.0/24
+volumes:
+  saas-db:
+  saas-files:
+  caddy-data:
+  caddy-config:

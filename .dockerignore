@@ -1,0 +1,11 @@
+**/bin
+**/obj
+**/TestResults
+.git
+.vs
+.env
+App_Data
+tests
+publish
+*.zip
+*.log
