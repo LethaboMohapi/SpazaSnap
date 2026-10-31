@@ -1,5 +1,11 @@
 # SpazaSnap
 
+[![version](https://img.shields.io/badge/version-v1.0.0-blue)](SpazaSnap.csproj)
+[![Application checks](https://github.com/LethaboMohapi/SpazaSnap/actions/workflows/ci.yml/badge.svg?branch=master&event=push)](https://github.com/LethaboMohapi/SpazaSnap/actions/workflows/ci.yml)
+[![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet&logoColor=white)](SpazaSnap.csproj)
+[![MySQL](https://img.shields.io/badge/MySQL-8.4%2B-4479A1?logo=mysql&logoColor=white)](compose.saas.yaml)
+
 Photo-first inventory for township spaza shops, built with **C#, ASP.NET Core 10 and MySQL 8.4**. A mobile-friendly, multi-tenant SaaS MVP: each shop owner signs in to a separate workspace for products, shelf photos, restock suggestions and supplier order drafts.
 
 Copyright © 2026 Lethabo Mohapi. Licensed under the [MIT License](LICENSE).
