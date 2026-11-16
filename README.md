@@ -2,14 +2,14 @@
 
 [![version](https://img.shields.io/badge/version-v1.0.0-blue)](SpazaSnap.csproj)
 [![Application checks](https://github.com/LethaboMohapi/SpazaSnap/actions/workflows/ci.yml/badge.svg?branch=master&event=push)](https://github.com/LethaboMohapi/SpazaSnap/actions/workflows/ci.yml)
-[![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![License: Proprietary](https://img.shields.io/badge/license-Proprietary-red)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet&logoColor=white)](SpazaSnap.csproj)
 [![MySQL](https://img.shields.io/badge/MySQL-8.4%2B-4479A1?logo=mysql&logoColor=white)](compose.saas.yaml)
 ![Code by Lethabo Mohapi](https://img.shields.io/badge/Code_by-Lethabo_Mohapi-blue)
 
 Photo-first inventory for township spaza shops, built with **C#, ASP.NET Core 10 and MySQL 8.4**. A mobile-friendly, multi-tenant SaaS MVP: each shop owner signs in to a separate workspace for products, shelf photos, restock suggestions and supplier order drafts.
 
-Copyright © 2026 Lethabo Mohapi. Licensed under the [MIT License](LICENSE).
+The application source code is proprietary and is not licensed for general public use.
 
 ## What works
 
@@ -117,6 +117,6 @@ Dockerfile / compose.saas.yaml   Hosted-service deployment
 
 ## License
 
-[MIT](LICENSE). The license applies to this project. Third-party dependencies retain their own licenses. Example product names are illustrative catalogue data; no supplier affiliation is implied.
+The application source code is proprietary and all rights are reserved by Lethabo Mohapi. You may not use, copy, modify, or distribute the application source without prior express written permission. Third-party dependencies, libraries, and assets remain subject to their respective license terms. Example product names are illustrative catalogue data; no supplier affiliation is implied.
 
 Implementation references: [MySqlConnector installation and connection guide](https://mysqlconnector.net/tutorials/connect-to-mysql/), [ASP.NET Core cookie authentication](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/cookie?view=aspnetcore-10.0), and [persistent Data Protection keys](https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/configuration/overview?view=aspnetcore-10.0).
