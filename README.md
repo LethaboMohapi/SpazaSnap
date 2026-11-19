@@ -7,6 +7,8 @@
 [![MySQL](https://img.shields.io/badge/MySQL-8.4%2B-4479A1?logo=mysql&logoColor=white)](compose.saas.yaml)
 ![Code by Lethabo Mohapi](https://img.shields.io/badge/Code_by-Lethabo_Mohapi-blue)
 
+[![Architecture diagram of lethabomohapi/spazasnap](https://gitdiagram.com/lethabomohapi/spazasnap/diagram.png)](https://gitdiagram.com/lethabomohapi/spazasnap?utm_source=readme&utm_medium=picture)
+
 Photo-first inventory for township spaza shops, built with **C#, ASP.NET Core 10 and MySQL 8.4**. A mobile-friendly, multi-tenant SaaS MVP: each shop owner signs in to a separate workspace for products, shelf photos, restock suggestions and supplier order drafts.
 
 The application source code is proprietary and is not licensed for general public use.
